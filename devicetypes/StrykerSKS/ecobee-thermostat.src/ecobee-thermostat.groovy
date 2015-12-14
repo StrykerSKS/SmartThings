@@ -16,7 +16,7 @@
  *	Date: 2013-06-13
  */
 metadata {
-	definition (name: "Ecobee Thermostat", namespace: "smartthings", author: "SmartThings") {
+	definition (name: "Ecobee Thermostat", namespace: "StrykerSKS", author: "Sean Kendall Schneyer") {
 		capability "Actuator"
 		capability "Thermostat"
 		capability "Polling"
