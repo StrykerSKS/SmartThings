@@ -14,7 +14,7 @@
  *
  */
 metadata {
-	definition (name: "Ecobee Sensor", namespace: "smartthings", author: "SmartThings") {
+	definition (name: "Ecobee Sensor", namespace: "StrykerSKS", author: "Sean Kendall Schneyer") {
 		capability "Sensor"
 		capability "Temperature Measurement"
 		capability "Motion Sensor"
