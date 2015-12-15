@@ -1,5 +1,5 @@
 /**
- *	My ecobee Init (Service Manager)
+ *	MyecobeeInit (Service Manager)
  *  Copyright 2015 SmartThings
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
@@ -24,7 +24,7 @@
  *      linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
  **/
 definition(
-    name: "My Ecobee Init",
+    name: "MyEcobeeInit",
     namespace: "yracine",
     author: "Yves Racine",
     description: "Connect your Ecobee thermostat and Sensors to SmartThings. Please ensure to turn on OAuth.",
@@ -50,7 +50,7 @@ mappings {
 def about() {
  	dynamicPage(name: "about", install: false, uninstall: true) {
  		section("About") {	
-			paragraph "My Ecobee Init, the smartapp that connects your Ecobee thermostat to SmartThings via cloud-to-cloud integration"
+			paragraph "MyEcobeeInit, the smartapp that connects your Ecobee thermostat to SmartThings via cloud-to-cloud integration"
 			paragraph "Version 2.3.2\n\n" 
 			paragraph "If you like this smartapp, please support the developer via PayPal and click on the Paypal link below " 
 				href url: "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=yracine%40yahoo%2ecom&lc=US&item_name=Maisons%20ecomatiq&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest",
