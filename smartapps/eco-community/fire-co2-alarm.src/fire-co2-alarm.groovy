@@ -17,8 +17,8 @@
  */
 // Automatically generated. Make future change here.
 definition(
-	name: "FireCO2Alarm",
-	namespace: "yracine",
+	name: "Fire CO2 Alarm",
+	namespace: "eco-community",
 	author: "yracine@yahoo.com",
 	description: "In case of a fire/CO2 alarm,turn on all the lights/turn off all thermostats, unlock the doors, disarm the alarm system & open the garage door when CO2 is detected ",
 	category: "My Apps",
