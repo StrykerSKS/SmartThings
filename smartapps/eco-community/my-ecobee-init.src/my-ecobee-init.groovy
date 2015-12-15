@@ -24,8 +24,8 @@
  *      linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
  **/
 definition(
-    name: "MyEcobeeInit",
-    namespace: "yracine",
+    name: "My Ecobee Init",
+    namespace: "eco-community",
     author: "Yves Racine",
     description: "Connect your Ecobee thermostat and Sensors to SmartThings. Please ensure to turn on OAuth.",
     category: "My Apps",
