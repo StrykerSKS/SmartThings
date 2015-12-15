@@ -19,8 +19,8 @@
  */
 // Automatically generated. Make future change here.
 definition(
-	name: "AwayFromHome",
-	namespace: "yracine",
+	name: "Away From Home",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Away From Home",
 	category: "My Apps",
