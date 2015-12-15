@@ -19,7 +19,7 @@
  */
 definition(
 	name: "ecobeeChangeMode",
-	namespace: "yracine",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description:
 	"Change the mode manually (by pressing the app's play button) and automatically at the ecobee thermostat(s)",
