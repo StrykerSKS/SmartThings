@@ -3447,7 +3447,7 @@ private def get_appKey() {
 	return settings.appKey
 }    
 
-// Called by My ecobee Init for initial creation of a child Device
+// Called by MyecobeeInit for initial creation of a child Device
 void initialSetup(device_client_id, auth_data, device_tstat_id) {
 /*
 	settings.trace='true'
