@@ -15,8 +15,8 @@
  *
  */
 definition(
-	name: "ecobee3RemoteSensorsInit",
-	namespace: "yracine",
+	name: "ecobee3 Remote Sensors Init",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Create individual ST sensors for all selected ecobee3's remote sensors and update them on a regular basis (interval chosen by the user).",
 	category: "My Apps",
