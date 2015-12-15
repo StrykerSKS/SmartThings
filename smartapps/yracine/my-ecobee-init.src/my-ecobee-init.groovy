@@ -15,7 +15,7 @@ definition(
     name: "My Ecobee Init",
     namespace: "yracine",
     author: "Yves Racine",
-    description: "Connect your Ecobee thermostat to SmartThings.",
+    description: "Connect your Ecobee thermostat and Sensors to SmartThings. Please ensure to turn on OAuth.",
     category: "My Apps",
     iconUrl: "https://s3.amazonaws.com/smartapp-icons/Partner/ecobee.png",
     iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Partner/ecobee@2x.png"
