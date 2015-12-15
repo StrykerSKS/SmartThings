@@ -38,7 +38,7 @@ preferences {
 }
 metadata {
 	// Automatically generated. Make future change here.
-	definition(name: "My Ecobee Device", author: "Yves Racine",  namespace: "yracine") {
+	definition(name: "My Ecobee Device", author: "Sean Kendall Schneyer <smartthings@linuxbox.org>",  namespace: "eco-community") {
 		capability "Thermostat"
 		capability "Relative Humidity Measurement"
 		capability "Temperature Measurement"
