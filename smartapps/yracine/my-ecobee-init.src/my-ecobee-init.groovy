@@ -12,7 +12,7 @@
  *      linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
  **/
 definition(
-    name: "MyEcobeeInit",
+    name: "My Ecobee Init",
     namespace: "yracine",
     author: "Yves Racine",
     description: "Connect your Ecobee thermostat to SmartThings.",
