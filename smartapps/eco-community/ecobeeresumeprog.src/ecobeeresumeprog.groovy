@@ -18,7 +18,7 @@
 // Automatically generated. Make future change here.
 definition(
 	name: "ecobeeResumeProg",
-	namespace: "yracine",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "resumes your ecobee's scheduled program when a presence is back home or when motion is detected or when a ST hello mode is changed",
 	category: "My Apps",
