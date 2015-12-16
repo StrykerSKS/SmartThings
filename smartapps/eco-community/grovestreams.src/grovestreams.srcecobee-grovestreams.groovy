@@ -16,7 +16,7 @@
  */
 definition(
 	name: "groveStreams",
-	namespace: "yracine",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Log to groveStreams and send data streams based on devices selection",
 	category: "My Apps",
