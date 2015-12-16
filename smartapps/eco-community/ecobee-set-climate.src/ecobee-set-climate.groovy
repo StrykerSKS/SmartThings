@@ -1,5 +1,5 @@
 /**
- *  ecobeeSetClimate
+ *  ecobee Set Climate
  *
  *  Copyright 2014 Yves Racine
  *  LinkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
@@ -18,10 +18,10 @@
  * you want to set a different Climate at a given day and time during the week.*
  */
 definition(
-	name: "ecobeeSetClimate",
-	namespace: "yracine",
+	name: "ecobee Set Climate",
+	namespace: "eco-community",
 	author: "Yves Racine",
-	description: "This script allows an ecobee user to set a Climate at a given day & time",
+	description: "This SmartApp allows an ecobee user to set a Climate at a given day & time",
 	category: "My Apps",
  	iconUrl: "https://s3.amazonaws.com/smartapp-icons/Partner/ecobee.png",
 	iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Partner/ecobee@2x.png"
