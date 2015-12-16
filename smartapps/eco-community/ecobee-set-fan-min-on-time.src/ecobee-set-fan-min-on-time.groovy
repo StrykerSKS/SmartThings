@@ -1,5 +1,5 @@
 /**
- *  ecobeeSetFanMinOnTime
+ *  ecobee Set Fan Min On Time
  *
  *  Copyright 2015 Yves Racine
  *  linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
@@ -15,10 +15,10 @@
  *
  */
 definition(
-    name: "ecobeeSetFanMinOnTime",
-    namespace: "yracine",
+    name: "ecobee Set Fan Min On Time",
+    namespace: "eco-community",
     author: "Yves Racine",
-    description: "ecobeeSetFanMinOnTime, the smartapp that sets your ecobee's fan to circulate for a minimum time (in minutes) per hour",
+    description: "ecobee Set Fan Min On Time, the smartapp that sets your ecobee's fan to circulate for a minimum time (in minutes) per hour",
     category: "My Apps",
 	iconUrl: "https://s3.amazonaws.com/smartapp-icons/Partner/ecobee.png",
 	iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Partner/ecobee@2x.png"
