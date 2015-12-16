@@ -15,8 +15,8 @@
  *
  */
 definition(
-	name: "ecobeeSetZoneWithSchedule",
-	namespace: "yracine",
+	name: "ecobee Set Zone With Schedule",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Enables Heating/Cooling Zoned Solutions based on your ecobee schedule(s)- coupled with smart vents (optional) for better temp settings control throughout your home",
 	category: "My Apps",
