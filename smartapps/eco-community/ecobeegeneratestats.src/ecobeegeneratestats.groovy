@@ -17,7 +17,7 @@
 import java.text.SimpleDateFormat 
 definition(
     name: "ecobeeGenerateStats",
-    namespace: "yracine",
+    namespace: "eco-community",
     author: "Yves Racine",
     description: "This smartapp allows a ST user to generate runtime stats (daily by scheduling or based on custom dates) on their devices controlled by ecobee such as a heating & cooling component,fan, dehumidifier/humidifier/HRV/ERV. ",
     category: "My Apps",

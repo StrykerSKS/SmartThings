@@ -20,7 +20,7 @@
  */
 definition(
 	name: "MonitorAndSetEcobeeTemp",
-	namespace: "yracine",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Monitors And Adjusts Ecobee your programmed temperature according to indoor motion sensors & outdoor temperature and humidity.",
 	category: "My Apps",

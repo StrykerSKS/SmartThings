@@ -22,7 +22,7 @@
 // Automatically generated. Make future change here.
 definition(
 	name: "MonitorAndSetEcobeeHumidity",
-	namespace: "yracine",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Monitor And set Ecobee's humidity via your connected humidifier/dehumidifier/HRV/ERV",
 	category: "My Apps",

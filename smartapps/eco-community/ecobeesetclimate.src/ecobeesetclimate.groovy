@@ -19,7 +19,7 @@
  */
 definition(
 	name: "ecobeeSetClimate",
-	namespace: "yracine",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "This script allows an ecobee user to set a Climate at a given day & time",
 	category: "My Apps",

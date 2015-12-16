@@ -16,7 +16,7 @@
  */
 definition(
     name: "ecobeeSetFanMinOnTime",
-    namespace: "yracine",
+    namespace: "eco-community",
     author: "Yves Racine",
     description: "ecobeeSetFanMinOnTime, the smartapp that sets your ecobee's fan to circulate for a minimum time (in minutes) per hour",
     category: "My Apps",

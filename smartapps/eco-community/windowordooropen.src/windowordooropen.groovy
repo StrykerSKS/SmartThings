@@ -15,8 +15,8 @@
  *
  */
 definition(
-	name: "WindowOrDoorOpen!",
-	namespace: "yracine",
+	name: "WindowOrDoorOpen",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Choose a contact sensor and get a notification (with voice as an option) when it is left open for too long.  Optionally, turn off the HVAC and set it back to cool/heat when window/door is closed",
 	category: "Safety & Security",

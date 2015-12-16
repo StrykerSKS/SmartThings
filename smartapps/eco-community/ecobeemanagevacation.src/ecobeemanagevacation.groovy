@@ -19,7 +19,7 @@
 // Automatically generated. Make future change here.
 definition(
 	name: "ecobeeManageVacation",
-	namespace: "yracine",
+	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "manages your ecobee vacation settings ['creation', 'update', 'delete']",
 	category: "My Apps",
