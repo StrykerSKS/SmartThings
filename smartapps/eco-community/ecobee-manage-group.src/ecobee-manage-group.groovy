@@ -1,5 +1,5 @@
 /**
- *  EcobeeManageGroup
+ *  Ecobee Manage Group
  *
  *  Copyright 2014 Yves Racine
  *  linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/ 
@@ -15,7 +15,7 @@
  *
  */
 definition(
-	name: "ecobeeManageGroup",
+	name: "ecobee Manage Group",
 	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Allows a user to create,update, and delete an ecobee group",
