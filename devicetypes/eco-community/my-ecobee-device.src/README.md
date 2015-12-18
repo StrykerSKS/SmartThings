@@ -2,7 +2,7 @@
 
 My Ecobee Device:  Custom ecobee device to enable more smart thermostat's capabilities within SmartThings 
 
-Current Author:     Sean Kendall Schneyer <smartthings@linuxbox.org> <br/>
+Current Author:     Sean Kendall Schneyer &lt;smartthings@linuxbox.org&gt; <br/>
 Contributors:       Please see the Contributor information at the Github page for the project <br/>
 Current Code: https://github.com/StrykerSKS/SmartThings/tree/master/devicetypes/eco-community/my-ecobee-device.src <br/>
 
