@@ -16,7 +16,7 @@
  */
  
 definition(
-	name: "ScheduleRoomTempControl",
+	name: "Schedule Room Temp Control",
 	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Enable better temp control in rooms based on Smart Vents",
