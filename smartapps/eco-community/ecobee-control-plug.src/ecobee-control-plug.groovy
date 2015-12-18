@@ -15,7 +15,7 @@
  *
  */
 definition(
-	name: "ecobeeControlPlug",
+	name: "ecobee Control Plug",
 	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Control a plug attached to an ecobee device",
