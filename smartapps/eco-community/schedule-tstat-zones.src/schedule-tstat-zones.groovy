@@ -16,7 +16,7 @@
  */
  
 definition(
-	name: "ScheduleTstatZones",
+	name: "Schedule Tstat Zones",
 	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Enable Heating/Cooling Zoned Solutions for thermostats coupled with smart vents (optional) for better temp settings control throughout your home",
