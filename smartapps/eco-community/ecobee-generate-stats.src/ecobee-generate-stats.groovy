@@ -1,5 +1,5 @@
 /**
- *  ecobeeGenerateStats
+ *  ecobee Generate Stats
  *
  *  Copyright 2015 Yves Racine
  *  linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/ 
@@ -16,7 +16,7 @@
  */
 import java.text.SimpleDateFormat 
 definition(
-    name: "ecobeeGenerateStats",
+    name: "ecobee Generate Stats",
     namespace: "eco-community",
     author: "Yves Racine",
     description: "This smartapp allows a ST user to generate runtime stats (daily by scheduling or based on custom dates) on their devices controlled by ecobee such as a heating & cooling component,fan, dehumidifier/humidifier/HRV/ERV. ",
