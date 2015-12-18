@@ -1,5 +1,5 @@
 /**
- *  ecobeeChangeMode
+ *  ecobee Change Mode
  *
  *  Copyright 2014 Yves Racine
  *  linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
@@ -18,7 +18,7 @@
  * Don't forget to set the app to run only for the target mode.
  */
 definition(
-	name: "ecobeeChangeMode",
+	name: "ecobee Change Mode",
 	namespace: "eco-community",
 	author: "Yves Racine",
 	description:
