@@ -26,7 +26,7 @@
 definition(
     name: "My Ecobee Init",
     namespace: "eco-community",
-    author: "Yves Racine",
+    author: "Sean Schneyer",
     description: "Connect your Ecobee thermostat and Sensors to SmartThings. Please ensure to turn on OAuth.",
     category: "My Apps",
     iconUrl: "https://s3.amazonaws.com/smartapp-icons/Partner/ecobee.png",
@@ -52,12 +52,9 @@ def about() {
  		section("About") {	
 			paragraph "MyEcobeeInit, the smartapp that connects your Ecobee thermostat to SmartThings via cloud-to-cloud integration"
 			paragraph "Version 2.3.2\n\n" 
-			paragraph "If you like this smartapp, please support the developer via PayPal and click on the Paypal link below " 
-				href url: "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=yracine%40yahoo%2ecom&lc=US&item_name=Maisons%20ecomatiq&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest",
-					title:"Paypal donation..."
-			paragraph "CopyrightÂ©2014 Yves Racine"
-				href url:"http://github.com/yracine/device-type.myecobee", style:"embedded", required:false, title:"More information...", 
-					description: "http://github.com/yracine/device-type.myecobee"
+			paragraph "Github Project"
+				href url:"https://github.com/StrykerSKS/SmartThings/tree/master/devicetypes/eco-community/my-ecobee-device.src", style:"embedded", required:false, title:"More information...", 
+					description: "https://github.com/StrykerSKS/SmartThings/tree/master/devicetypes/eco-community/my-ecobee-device.src"
 		}
 	}        
 }
@@ -639,7 +636,7 @@ def toQueryString(Map m) {
 	return m.collect { k, v -> "${k}=${URLEncoder.encode(v.toString())}" }.sort().join("&")
 }
 
-def getChildNamespace() { "yracine" }
+def getChildNamespace() { "eco-community" }
 def getChildName() { "My Ecobee Device" }
 
 //def getServerUrl() { return "https://graph.api.smartthings.com" }

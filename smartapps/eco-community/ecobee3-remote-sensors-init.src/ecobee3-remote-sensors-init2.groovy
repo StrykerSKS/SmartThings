@@ -15,11 +15,15 @@
  *
  */
 definition(
+<<<<<<< HEAD:smartapps/eco-community/ecobee3-remote-sensors-init.src/ecobee3-remote-sensors-init.groovy
 <<<<<<< HEAD:smartapps/eco-community/ecobeeremotesensorsinit.src/ecobeeremotesensorsinit.groovy
 	name: "ecobeeremotesensorsinit",
 =======
 	name: "ecobee3 Remote Sensors Init",
 >>>>>>> fd2fd048507874e6ec320ac90bf2f87653636ebd:smartapps/eco-community/ecobee3-remote-sensors-init.src/ecobee3-remote-sensors-init.groovy
+=======
+	name: "ecobee3 Remote Sensors Init2",
+>>>>>>> fc6700ddc6362601a09daa5e5eb000f5582e9aad:smartapps/eco-community/ecobee3-remote-sensors-init.src/ecobee3-remote-sensors-init2.groovy
 	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Create individual ST sensors for all selected ecobee3's remote sensors and update them on a regular basis (interval chosen by the user).",
