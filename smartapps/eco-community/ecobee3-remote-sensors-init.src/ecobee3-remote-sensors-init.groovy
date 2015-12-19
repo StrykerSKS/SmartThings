@@ -17,6 +17,7 @@
  *
  */
 definition(
+
 	name: "ecobee3 Remote Sensors Init",
 	namespace: "eco-community",
 	author: "Sean Kendall Schneyer <smartthings@linuxbox.org>",
