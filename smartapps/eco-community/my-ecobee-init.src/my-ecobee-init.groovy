@@ -646,7 +646,13 @@ def getChildName() { "My Ecobee Device" }
 
 def getServerUrl() { return getApiServerUrl()  }
 
-def getSmartThingsClientId() { "qqwy6qo0c2lhTZGytelkQ5o8vlHgRsrO" }
+def getSmartThingsClientId() { 
+	if(!appSettings.clientId) {
+    		return "obvlTjUuuR2zKpHR6nZMxHWugoi5eVtS"
+    	} else {
+		return appSettings.clientId 
+        }
+}
 
 
 def debugEvent(message, displayEvent) {
