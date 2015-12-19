@@ -1,8 +1,10 @@
 /**
  *  ecobee3RemoteSensorsInit
  *
- *  Copyright 2015 Yves Racine
+ *  Portions Copyright 2015 Yves Racine
  *  linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
+ *
+ *  Additional portions Copyright 2015 Sean Kendall Schneyer and Others (see Contributor List in Git Project)
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  *  in compliance with the License. You may obtain a copy of the License at:
@@ -30,11 +32,8 @@ preferences {
 		section("About") {
 			paragraph "ecobeeRemoteSensorsInit, the smartapp that creates individual ST sensors for your ecobee3's remote Sensors and polls them on a regular basis"
 			paragraph "Version 1.6.2" 
-			paragraph "If you like this smartapp, please support the developer via PayPal and click on the Paypal link below " 
-				href url: "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=yracine%40yahoo%2ecom&lc=US&item_name=Maisons%20ecomatiq&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest",
-					title:"Paypal donation..."
-			paragraph "Copyright©2014 Yves Racine"
-				href url:"http://github.com/yracine/device-type.myecobee", style:"embedded", required:false, title:"More information..." 
+			paragraph "Project on Github"
+				href url:"https://github.com/StrykerSKS/SmartThings/tree/master/devicetypes/eco-community/my-ecobee-device.src", style:"embedded", required:false, title:"More information..." 
 		}
 		section("Select the ecobee thermostat") {
 			input "ecobee", "capability.thermostat", title: "Which ecobee thermostat?"
