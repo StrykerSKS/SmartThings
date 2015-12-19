@@ -1,5 +1,5 @@
 /**
- *	My Ecobee Init (Service Manager)
+ *  My Ecobee Init (Service Manager)
  *  Copyright 2015 SmartThings
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
@@ -19,9 +19,11 @@
  *  Last Modification:
  *      JLH - 01-23-2014 - Update for Correct SmartApp URL Format
  *      JLH - 02-15-2014 - Fuller use of ecobee API
- *		Y.Racine Nov 2014 - Simplified the Service Manager as much as possible to reduce tight coupling with 
+ *	Y.Racine Nov 2014 - Simplified the Service Manager as much as possible to reduce tight coupling with 
  *							its child device types (device handlers) for better performance and reliability.
- *      linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
+ *      	linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
+ * 
+ * 	SKS - 12-18-2015 - Forked to maintain Apache license, work to fix OAuth problems
  **/
 definition(
     name: "My Ecobee Init",
