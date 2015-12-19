@@ -1,9 +1,9 @@
 /***
  *  My Ecobee Device
- *  Copyright 2014 Yves Racine
- *  linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
+ *  Portions Copyright 2014 Yves Racine
+ *  Additions Copyright 2015 Sean Kendall Schneyer and Others (see Contributor list on Github)
  *  Version 3.1.5
- *  Code: https://github.com/yracine/device-type.myecobee
+ *  Code: https://github.com/StrykerSKS/SmartThings/tree/master/devicetypes/eco-community/my-ecobee-device.src
  *  Refer to readme file for installation instructions.
  *
  *
