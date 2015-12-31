@@ -1,4 +1,15 @@
 /**
+ *  Copyright 2015 SmartThings
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ *  in compliance with the License. You may obtain a copy of the License at:
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed
+ *  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License
+ *  for the specific language governing permissions and limitations under the License.
+ *
  *	Ecobee Service Manager
  *
  *	Author: scott
@@ -8,7 +19,8 @@
  *      JLH - 01-23-2014 - Update for Correct SmartApp URL Format
  *      JLH - 02-15-2014 - Fuller use of ecobee API
  *      10-28-2015 DVCSMP-604 - accessory sensor, DVCSMP-1174, DVCSMP-1111 - not respond to routines
- *		StrykerSKS - 12-11-2015 - Make it work with the Ecobee 3
+ *	StrykerSKS - 12-11-2015 - Make it work with the Ecobee 3, split up the login/auth pages.
+ *	Snakedog116 - 12-31-2015 - Re-enter the license, adjust the wording on the OtherPreferences page.
  */
  
 definition(
@@ -26,9 +38,9 @@ definition(
 
 preferences {
 	page(name: "auth", title: "ecobee3 Auth", nextPage: "therms", content: "authPage", uninstall: true)
-    page(name: "therms", title: "Select Thermostats", nextPage: "sensors", content: "thermsPage")
-    page(name: "sensors", title: "Select Sensors", nextPage: "otherprefs", content: "sensorsPage")
-    page(name: "otherprefs", title: "Advanced Preferences", nextPage: "", content: "otherprefsPage", install: true)
+	page(name: "therms", title: "Select Thermostats", nextPage: "sensors", content: "thermsPage")
+	page(name: "sensors", title: "Select Sensors", nextPage: "otherprefs", content: "sensorsPage")
+	page(name: "otherprefs", title: "Advanced Preferences", nextPage: "", content: "otherprefsPage", install: true)
 }
 
 mappings {
@@ -124,8 +136,15 @@ def otherprefsPage() {
 	log.debug "otherprefsPage() entered"
      return dynamicPage(name: "otherprefs", title: "Other Preferences", nextPage: "") {
     	section() {
-        	paragraph "Lorum Ipsum otherprefs"
-        }
+    		paragraph """Success!
+
+You have correctly setup your Ecobee with SmartThings.
+
+There are no other preferences at this time.
+
+
+Make sure to adjust the preferences under the Ecobee Thermostat Device itself."""
+	}
     }
 }
 
