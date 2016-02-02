@@ -1,5 +1,5 @@
 /**
- *  ecobeeManageClimate
+ *  ecobee Manage Climate
  *
  *  Copyright 2014 Yves Racine
  *  linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/ 
@@ -15,7 +15,7 @@
  *
  */
 definition(
-	name: "ecobeeManageClimate",
+	name: "ecobee Manage Climate",
 	namespace: "eco-community",
 	author: "Yves Racine",
 	description: "Allows a user to manage ecobee's climates",

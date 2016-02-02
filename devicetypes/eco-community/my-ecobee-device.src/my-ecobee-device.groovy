@@ -1,9 +1,9 @@
 /***
  *  My Ecobee Device
- *  Copyright 2014 Yves Racine
- *  linkedIn profile: ca.linkedin.com/pub/yves-racine-m-sc-a/0/406/4b/
+ *  Portions Copyright 2014 Yves Racine
+ *  Additions Copyright 2015 Sean Kendall Schneyer and Others (see Contributor list on Github)
  *  Version 3.1.5
- *  Code: https://github.com/yracine/device-type.myecobee
+ *  Code: https://github.com/StrykerSKS/SmartThings/tree/master/devicetypes/eco-community/my-ecobee-device.src
  *  Refer to readme file for installation instructions.
  *
  *
@@ -227,7 +227,7 @@ metadata {
 	tiles(scale: 2) { 
 		multiAttributeTile(name:"summary", type: "lighting", width: 6, height: 4, canChangeIcon: false){
 			tileAttribute ("device.temperatureDisplay", key: "PRIMARY_CONTROL") {
-				attributeState ("temperature", label:'${currentValue}Â°', backgroundColor:"#44b621", 					
+				attributeState ("temperature", label:'${currentValue}°', backgroundColor:"#44b621", 					
 					icon:"st.Home.home1", unit:"F"       
 				)
         	}
@@ -267,7 +267,7 @@ metadata {
 			state "heatLevelUp", label:'Heat', action:"heatLevelUp", icon:"st.thermostat.thermostat-up"
 		}
 		valueTile("heatingSetpoint", "device.heatingSetpointDisplay", width: 3, height: 2, inactiveLabel: false) {
-			state "heat", label:'${currentValue}Â°', unit:"F",
+			state "heat", label:'${currentValue}°', unit:"F",
 			backgroundColors:[
 				[value: 0, color: "#153591"],
 				[value: 7, color: "#1e9cbb"],
@@ -293,7 +293,7 @@ metadata {
 			state "coolLevelUp", label:'Cool', action:"coolLevelUp", icon:"st.thermostat.thermostat-up"
 		}
 		valueTile("coolingSetpoint", "device.coolingSetpointDisplay", width: 3, height: 2, inactiveLabel: false) {
-			state "cool", label:'${currentValue}Â°', unit:"F",
+			state "cool", label:'${currentValue}°', unit:"F",
 			backgroundColors:[
 				[value: 0, color: "#153591"],
 				[value: 7, color: "#1e9cbb"],
@@ -374,11 +374,11 @@ metadata {
 		}
 		valueTile("programCoolTemp", "device.programCoolTempDisplay", inactiveLabel: false,
 			width: 2, height: 2, decoration: "flat") {
-			state "default", label: 'Prog Cool\n${currentValue}Â°'
+			state "default", label: 'Prog Cool\n${currentValue}°'
 		}
 		valueTile("programHeatTemp", "device.programHeatTempDisplay", inactiveLabel: false,
 			width: 2, height: 2, decoration: "flat") {
-			state "default", label: 'Prog Heat\n${currentValue}Â°'
+			state "default", label: 'Prog Heat\n${currentValue}°'
 		}
 		standardTile("resProgram", "device.thermostatMode", inactiveLabel: false,
 			decoration: "flat",width: 2, height: 2) {
@@ -422,7 +422,7 @@ metadata {
 		}
 		valueTile("weatherTemperature", "device.weatherTemperatureDisplay", inactiveLabel:
 			false, width: 2, height: 2, decoration: "flat") {
-			state "default", label: 'Out Temp\n${currentValue}Â°', unit: "C"
+			state "default", label: 'Out Temp\n${currentValue}°', unit: "C"
 		}
 		valueTile("weatherRelativeHumidity", "device.weatherRelativeHumidity",
 			inactiveLabel: false, width: 2, height: 2,decoration: "flat") {
@@ -430,11 +430,11 @@ metadata {
 		}
 		valueTile("weatherTempHigh", "device.weatherTempHigh", inactiveLabel: false,
 			width: 2, height: 2, decoration: "flat") {
-			state "default", label: 'ForecastH\n${currentValue}Â°', unit: "C"
+			state "default", label: 'ForecastH\n${currentValue}°', unit: "C"
 		}
 		valueTile("weatherTempLow", "device.weatherTempLow", inactiveLabel: false,
 			width: 2, height: 2, decoration: "flat") {
-			state "default", label: 'ForecastL\n${currentValue}Â°', unit: "C"
+			state "default", label: 'ForecastL\n${currentValue}°', unit: "C"
 		}
 		valueTile("weatherPressure", "device.weatherPressure", inactiveLabel: false,
 			width: 2, height: 2, decoration: "flat") {
