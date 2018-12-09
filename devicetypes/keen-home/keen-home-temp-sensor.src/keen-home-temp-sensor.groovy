@@ -27,14 +27,21 @@ metadata {
         command "setZigBeeIdTile"
 //        command "clearObstruction"
 
+//		Below is the fingerprint from the Keen Home Smart Vent, used as a starting point for temp sensor
 //        fingerprint endpoint: "1", profileId: "0104", inClusters: "0000,0001,0003,0004,0005,0006,0008,0020,0402,0403,0B05,FC01,FC02", outClusters: "0019"
+//		0004 == Groups: Doesn't work if added to inCluster
+//		0005 == Scenes: Dopesn't work if added to inCluster
 //		0006 == On/Off: Likely not needed for Temp Sensor
 //		0008 == Level Control: Likely not needed for Temp Sensor
-//		0403 == Presure measurement
-//		0B05 == Diagnostics?
+//		0402 == Temperature mesurement: Doesn't work if added to inCluster
+//		0403 == Presure measurement: Doesn't work if added to inCluster
+//		0B05 == Diagnostics?: Doesn't work if added to inCluster
+//		FC01 == Vendor Specific?: Doesn't work if added to inCluster
+//		FC02 == Vendor Specific?: Doesn't work if added to inCluster
 //		Is the deviceId needed or even useful?
-        fingerprint endpoint: "1", profileId: "0104", deviceId: "0302", inClusters: "0000,0001,0003,0004,0005,0006,0008,0020,0402,0403,0B05,FC01,FC02", outClusters: "0019", deviceJoinName: "Keen Home Temp Sensor"
-    
+//        fingerprint endpoint: "1", profileId: "0104", deviceId: "0302", inClusters: "0000,0001,0003,0004,0005,0020,0402,0B05,FC01,FC02", outClusters: "0019", deviceJoinName: "Keen Home Temp Sensor"
+        fingerprint endpoint: "1", profileId: "0104", deviceId: "0302", inClusters: "0000,0001,0003,0020", outClusters: "0019", deviceJoinName: "Keen Home Temp Sensor"
+
 
 	}
 
@@ -61,6 +68,12 @@ metadata {
                 [value: 96, color: "#bc2323"]
             ]
         }
+        valueTile("humidity", "device.humidity", inactiveLabel: false, decoration: "flat") {
+            state "humidity", label: 'Humidity \n${currentValue}%', backgroundColor:"#ffffff"
+        }
+        valueTile("pressure", "device.pressure", inactiveLabel: false, decoration: "flat") {
+            state "pressure", label: 'Pressure \n${currentValue}Pa', backgroundColor:"#ffffff"
+        }
         valueTile("battery", "device.battery", inactiveLabel: false, decoration: "flat") {
             state "battery", label: 'Battery \n${currentValue}%', backgroundColor:"#ffffff"
         }
@@ -68,7 +81,7 @@ metadata {
             state "serial", label:'${currentValue}', backgroundColor:"#ffffff"
         }
         main "temperature"
-        details(["refresh","temperature","battery"])
+        details(["refresh","temperature","humidity","pressure","battery"])
     }
 
 	
@@ -86,6 +99,7 @@ def parse(String description) {
         map = parseReportAttributeMessage(description)
     }
     else if (description?.startsWith('temperature: ') || description?.startsWith('humidity: ')) {
+    	log.debug "[SKS] Got temperature or humidity. ${description}"
         map = parseCustomMessage(description)
     }
     else if (description?.startsWith('on/off: ')) {
@@ -109,6 +123,7 @@ private Map parseCatchAllMessage(String description) {
                 break
 
             case 0x0402:
+            	log.debug "Got 0402"
                 // temp is last 2 data values. reverse to swap endian
                 String temp = cluster.data[-2..-1].reverse().collect { cluster.hex1(it) }.join()
                 def value = convertTemperatureHex(temp)
@@ -150,16 +165,25 @@ private Map parseReportAttributeMessage(String description) {
         return makeOnOffResult(Int.parseInt(descMap.value));
     }
     else if (descMap.cluster == "0008" && descMap.attrId == "0000") {
-        return makeLevelResult(descMap.value)
+        // return makeLevelResult(descMap.value)
+        // Temp Sensor doesn't have a level
+        return 
+        [
+        name: "level",
+        value: 0,
+        descriptionText: "${linkText} does not support level"
+    ]
     }
     else if (descMap.cluster == "0402" && descMap.attrId == "0000") {
         def value = convertTemperatureHex(descMap.value)
         return makeTemperatureResult(value)
     }
     else if (descMap.cluster == "0001" && descMap.attrId == "0021") {
+    	log.debug "[SKS] Got Battery"
         return makeBatteryResult(Integer.parseInt(descMap.value, 16))
     }
     else if (descMap.cluster == "0403" && descMap.attrId == "0020") {
+    	log.debug "[SKS] Got 0403"
         return makePressureResult(Integer.parseInt(descMap.value, 16))
     }
     else if (descMap.cluster == "0000" && descMap.attrId == "0006") {
@@ -172,13 +196,22 @@ private Map parseReportAttributeMessage(String description) {
 
 private Map parseCustomMessage(String description) {
     Map resultMap = [:]
-    if (description?.startsWith('temperature: ')) {
-        // log.debug "${description}"
+	log.debug "parseCustomMessage - ${description}"
+
+	if (description?.startsWith('temperature: ')) {
         // def value = zigbee.parseHATemperatureValue(description, "temperature: ", getTemperatureScale())
         // log.debug "split: " + description.split(": ")
         def value = Double.parseDouble(description.split(": ")[1])
         // log.debug "${value}"
         resultMap = makeTemperatureResult(convertTemperature(value))
+    } else if (description?.startsWith('humidity: ')) {
+    	// log.debug "parseCustomMessage - in humidity routine"
+    	def value = (description.split(": ")[1])
+        // log.debug "value before truncate: ${value}"
+        value = value.substring(0, value.length() -1)
+        // log.debug "value after truncate: ${value}"
+        // log.debug "humidity value without percent is ${value}"
+        resultMap = makeHumidityResult(value)
     }
     return resultMap
 }
@@ -231,7 +264,7 @@ private Map makeLevelResult(rawValue) {
 }
 
 private Map makePressureResult(rawValue) {
-    log.debug 'makePressureResut'
+    log.debug "makePressureResult - rawValue: ${rawValue}"
     def linkText = getLinkText(device)
 
     def pascals = rawValue / 10
@@ -245,15 +278,18 @@ private Map makePressureResult(rawValue) {
 }
 
 private Map makeBatteryResult(rawValue) {
-    // log.debug 'makeBatteryResult'
+    log.debug 'makeBatteryResult'
     def linkText = getLinkText(device)
+    def batteryPercent = rawValue / 2
 
     // log.debug
-    [
+    def result = [
         name: 'battery',
-        value: rawValue,
-        descriptionText: "${linkText} battery is at ${rawValue}%"
+        value: batteryPercent,
+        descriptionText: "${linkText} battery is at ${batteryPercent}%"        
     ]
+    
+    return result
 }
 
 private Map makeTemperatureResult(value) {
@@ -276,6 +312,17 @@ private Map makeTemperatureResult(value) {
         descriptionText: "${linkText} is ${value}°${temperatureScale}",
         unit: temperatureScale
     ]
+}
+
+private Map makeHumidityResult(value) {
+	log.debug 'makeHumidityResult'
+    def linkText = getLinkText(device)
+    
+    return [
+    	name: 'humidity',
+        value: "" + value,
+        descriptionText: "${linkText} is ${value}%"
+	]
 }
 
 /**** HELPER METHODS ****/
@@ -459,8 +506,8 @@ def setZigBeeIdTile() {
 }
 
 def refresh() {
-    getOnOff() +
-    getLevel() +
+//    getOnOff() +
+//    getLevel() +
     getTemperature() +
     getPressure() +
     getBattery()
@@ -487,10 +534,10 @@ def configure() {
         // bind reporting clusters to hub
             //commenting out switch cluster bind as using wrapper onOffConfig of zigbee class
         //"zdo bind 0x${device.deviceNetworkId} 1 1 0x0006 {${device.zigbeeId}} {}", "delay 500",
-        "zdo bind 0x${device.deviceNetworkId} 1 1 0x0008 {${device.zigbeeId}} {}", "delay 500",
+//        "zdo bind 0x${device.deviceNetworkId} 1 1 0x0008 {${device.zigbeeId}} {}", "delay 500",
         "zdo bind 0x${device.deviceNetworkId} 1 1 0x0402 {${device.zigbeeId}} {}", "delay 500",
         "zdo bind 0x${device.deviceNetworkId} 1 1 0x0403 {${device.zigbeeId}} {}", "delay 500",
-        "zdo bind 0x${device.deviceNetworkId} 1 1 0x0001 {${device.zigbeeId}} {}", "delay 500"
+        "zdo bind 0x${device.deviceNetworkId} 1 1 0x0001 {${device.zigbeeId}} {}", "delay 500",
 
         // configure report commands
         // zcl global send-me-a-report [cluster] [attr] [type] [min-interval] [max-interval] [min-change]
@@ -518,9 +565,10 @@ def configure() {
 
         // report with these parameters is preconfigured in firmware, can be overridden here
         // battery - type: int8u, change: 1
-        // "zcl global send-me-a-report 1 0x21 0x20 60 3600 {01}", "delay 200",
-        // "send 0x${device.deviceNetworkId} 1 1", "delay 1500",
+        // [SKS] For Temp Sensor had to uncomment this to make it report, seems that it needs to be divided by two (2) to get the percentage
+        "zcl global send-me-a-report 1 0x21 0x20 60 3600 {01}", "delay 200",
+        "send 0x${device.deviceNetworkId} 1 1", "delay 1500"
     ]
 
-    return configCmds + zigbee.onOffConfig() + refresh()
+    return configCmds + refresh()
 }
